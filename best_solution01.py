@@ -48,15 +48,17 @@ print("Lenght of minimum values..",len(min_value))
 dif=[]
 avg=[]
 
-for i in max_value[:100]:
+#Now the problem is solved so there is no need of using a short part of lists instead of full lists
+#for i,j in zip(max_value[:10000],min_value[:10000]):
 
-    for j in min_value[:100]:
+for i,j in zip(max_value,min_value):
+    #for j in min_value[:100]:
                      
-        diff= i-j
-        average=(i+j)/2.0
-        dif.append(diff)
-        avg.append(average)
-        #print("Done with the i number ",i," and j number ",j," dif and avg value calculation..")
+    diff= i-j
+    average=(i+j)/2.0
+    dif.append(diff)
+    avg.append(average)
+    #print("Done with the i number ",i," and j number ",j," dif and avg value calculation..")
                 
 #Histogram for minimum solution
 h1= TH1F("h1","Minimum and Maximum Solution",100,-2,2)
@@ -64,32 +66,42 @@ for entry in min_value:
        h1.Fill(entry)
 c1=TCanvas()
 h1.Draw()
+
+#for adjusting the y-axis limit
+#h1.GetYaxis().SetRangeUser(0,110)
+
 h1.SetLineColor(4);
-h1.SetStats(0);
+#h1.SetStats(0);
 
 #Histogram for maximum solution
 h2= TH1F("h2","Minimum and Maximum Solution",100,-2,2)
 for entry in max_value:
        h2.Fill(entry)
 h2.Draw("Same")
+#for adjusting the y-axis limit
+#h2.GetYaxis().SetRangeUser(0,110)
 h2.SetLineColor(2);
-h2.SetStats(0);
+#h2.SetStats(0);
 
 #Difference between two solutions
 h3= TH1F("h3","Minimum and Maximum Solution",100,-2,2)       
 for entry in dif:
     h3.Fill(entry)
 h3.Draw("Same")
+#for adjusting the y-axis limit
+#h3.GetYaxis().SetRangeUser(0,110)
 h3.SetLineColor(6);
-h3.SetStats(0);
+#h3.SetStats(0);
   
 #Average of two solutions
 h4= TH1F("h4","Minimum and Maximum Solution",100,-2,2)       
 for entry in avg:
     h4.Fill(entry)
 h4.Draw("Same")
+#for adjusting the y-axis limit
+#h4.GetYaxis().SetRangeUser(0,110)
 h4.SetLineColor(8);
-h4.SetStats(0);
+#h4.SetStats(0);
   
 ##Legend
 leg = TLegend(0.2,0.2,0.3,0.3)
