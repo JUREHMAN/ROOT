@@ -1,2 +1,2 @@
 # ROOT
-These are simple c++ codes for plotting different parameters from ROOT files.
+These are simple c++/python codes for plotting different parameters from ROOT files.
